@@ -1,0 +1,281 @@
+/*RESET*/
+
+@import "reset-fonts";
+
+
+/*COULEURS*/
+
+$clrbckhd: #f3e9f1; /*couleur background header*/
+
+
+/*FONTS*/
+
+p, h1, h2, h3, h4, a, span{font-family: "calibri", "sans-serif"; color: black;}
+
+
+/*HEADER*/
+
+                /*LOGO ORINOCO*/
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 15%;
+    padding-top: 1%;
+    background-color: $clrbckhd;
+    .retourindex{
+        display: flex;
+        flex-direction: row;
+        margin: auto 3%;
+        flex-grow: 2;
+
+        i{
+            font-size: 5em;
+            margin-right: 2%;
+            /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#e68a09+0,af6ca4+50,8f5bfe+100 */
+            background: #e68a09; /* Old browsers */
+            background: -moz-linear-gradient(-45deg,  #e68a09 0%, #af6ca4 50%, #8f5bfe 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(-45deg,  #e68a09 0%,#af6ca4 50%,#8f5bfe 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(135deg,  #e68a09 0%,#af6ca4 50%,#8f5bfe 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e68a09', endColorstr='#8f5bfe',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+            -webkit-text-fill-color:transparent;
+            -webkit-background-clip:text;
+        }
+        h1{
+            font-size: 5em;
+            font-family: 'belligerent', 'calibri';
+            text-align: center;
+        }
+    }
+
+    /*MON PANIER*/
+    .monpanier{
+        display: flex;
+        flex-direction: column;
+        margin: auto 3%;
+        i{
+            font-size: 3em;
+            margin: auto;
+        }
+        p{
+            font-size: 1em;
+        }
+    }
+}
+
+/*NOM DES ARTICLES*/
+
+h2{
+    font-size: 5vw; 
+    text-transform: uppercase;
+    text-align: center;
+    margin: 2% auto;
+    text-shadow: 3px 3px 3px $clrbckhd;
+}
+
+
+/*Liste des Produits*/
+
+.produits{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+}
+
+/*Produit*/
+
+.produit a{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2%;
+    border: 1px solid #ddd;
+    height: 155px;
+    transition: all 200ms ease-out;
+    &:hover{
+        box-shadow: 10px 5px 5px $clrbckhd;  
+    }
+    .imageproduit{
+        margin-top: 10px;
+        margin-left: 10px;
+        height: 135px;
+        width: 200px;
+    }
+    .libelle{
+        flex-grow: 2;
+        margin-top: 30px;
+        margin-left: 20px;
+        h3{
+            font-size: 2em;
+            font-weight: bold;
+        }
+        p{
+            font-size: 1em;
+        }
+    }
+    .prix{
+        p{
+            font-size: 2em;
+            color: red;
+            font-weight: bold;
+            margin: 50px 20px auto 50px;
+        }
+    }
+}
+
+/**************/
+/*Page produit*/
+/**************/
+
+#container{
+    margin-top: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/*Photo du produit*/
+
+.photoproduit{
+    margin-left: 20px;
+}
+
+/*Description du produit*/
+
+.descriptionproduit{
+    flex-grow: 2;
+    width: 60%;
+    margin-left: 30px;
+    margin-right: 20px;
+    h3{
+        font-size: 3em;
+    }
+    p{
+        font-size: 1.5em;
+    }
+}
+
+/*Ajout au panier + Prix*/
+.blockinfos{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #dddddd;
+    flex-grow: 1;
+    padding: 1% 1% 25% 1%;
+    margin-right: 20px;
+    p{
+        color: red;
+        font-size: 2em;
+        margin-top: 20px;
+
+    }
+    span{
+        font-size: 2em;
+        color: green;
+        margin-top: 50px;
+    }
+    .btnpanier{
+        margin-top: 50px;
+        padding: 0px 25px;
+        border-radius: 10px;
+        background-color: #65ad42;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        box-shadow: 5px 5px 5px black;
+        transition: all 200ms ease-out;
+        &:hover{
+        box-shadow: 1px 1px 1px black;  
+    }
+        i{
+            font-size: 2.5em;
+            color: white;
+            padding: 5px;
+            border: 1px solid white;
+            border-radius: 50px;   
+        }
+        p{
+            font-size: 1.5em;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 10%;
+            margin-left: 5px;
+            white-space: nowrap;
+            text-shadow: 1px 1px 1px black;
+        }
+    }
+
+}
+
+/**************************************************************************************/
+/**********************************RESPONSIVE******************************************/
+/**************************************************************************************/
+@media screen and (max-width: 700px){
+
+    /*Produit*/
+    .produit a{
+        .libelle{
+            margin: auto 5%;
+            h3{
+                font-size: 1.7em;
+                white-space: nowrap;
+            }
+            p{
+                display: none;
+            }
+        }
+        .prix{
+            p{
+                font-size: 5vw;
+                margin: 50px 20px auto 30px;
+            }
+        }
+    }
+
+    /*MON PANIER*/
+    .monpanier{
+        p{
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 580px){
+    header{
+        .retourindex{
+            i{
+                font-size: 3em;
+            }
+            h1{
+                font-size: 3em;
+            }
+        }
+    }
+    .produit h3{
+        font-size: 6vw;
+    }
+    .produit .prix p{
+        display: none;
+    }
+
+    /*MON PANIER*/
+    .monpanier{
+        i{
+            font-size: 3em;
+        }
+        p{
+            font-size: 1em;
+        }
+    }
+}
+@media screen and (max-width: 420px){
+    /*Produit*/
+    .produit a{
+        .libelle{
+            h3{
+                font-size: 1.2em;
+            }
+        }
+    }
+}
