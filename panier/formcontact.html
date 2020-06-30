@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/formulaire.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://kit.fontawesome.com/29d0c15e9b.js" crossorigin="anonymous"></script>
+    <title>Contact</title>
+</head>
+<body>
+    <!--Header avec panier-->
+    <header>
+        <a class="retourindex" href="../index.html">
+            <i class="fas fa-shopping-cart"></i>
+            <h1>Orinoco</h1>
+        </a>
+        <a class="monpanier" href="./panier.html">
+            <i class="fas fa-shopping-basket"></i>
+            <p>Mon panier</p>
+        </a> 
+    </header>
+    <!--Fin de Header avec panier-->
+    <section id="formulaire">
+        <h2>Récapitulatif de commande</h2>
+        <div id="recapcmd"></div>
+        <form id="myform">
+            <h3>Informations</h3>
+            <div class="input_field">
+                <input type="text" placeholder="prénom*" id="firstname">
+            </div>
+            <div class="input_field">
+                <input type="text" placeholder="nom*" id="lastname">
+            </div>
+            <div class="input_field">
+                <input type="text" placeholder="adresse*" id="address">
+            </div>
+            <div class="input_field">
+                <input type="text" placeholder="ville*" id="city">
+            </div>
+            <div class="input_field">
+                <input type="text" placeholder="email*" id="email">
+            </div>
+            <div id="btnsend">
+                <input type="submit">
+            </div>
+            <div id="error_message"></div>
+        </form>
+    </section> 
+    <!--Script JS-->
+    <script src="../js/formulaire.js"></script>
+</body>
+</html>

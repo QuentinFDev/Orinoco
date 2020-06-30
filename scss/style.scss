@@ -6,11 +6,15 @@
 /*COULEURS*/
 
 $clrbckhd: #f3e9f1; /*couleur background header*/
-
+$clrprimaire: #65AD42; /*vert bouton et background récap commande*/
+$clrimportant: red; /*prix et messages important*/
+$clrbckg: white; /*background et couleur blanche*/
+$clrborderbutton: #243e18; /*couleur des bordures des bouttons*/
+$clrborderpanier: #d3d3d3; /*couleur bordures panier*/
 
 /*FONTS*/
 
-p, h1, h2, h3, h4, a, span{font-family: "calibri", "sans-serif"; color: black;}
+p, h1, h2, h3, h4, a, span, #choixlentilles{font-family: "calibri", "sans-serif"; color: black;}
 
 
 /*HEADER*/
@@ -61,8 +65,14 @@ header{
         p{
             font-size: 1em;
         }
+        
     }
 }
+
+/**************************************************************************************/
+/********************************** PAGE PRODUITS***************************************/
+/**************************************************************************************/
+
 
 /*NOM DES ARTICLES*/
 
@@ -117,99 +127,16 @@ h2{
     .prix{
         p{
             font-size: 2em;
-            color: red;
+            color: $clrimportant;
             font-weight: bold;
             margin: 50px 20px auto 50px;
         }
     }
 }
 
-/**************/
-/*Page produit*/
-/**************/
-
-#container{
-    margin-top: 70px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-/*Photo du produit*/
-
-.photoproduit{
-    margin-left: 20px;
-}
-
-/*Description du produit*/
-
-.descriptionproduit{
-    flex-grow: 2;
-    width: 60%;
-    margin-left: 30px;
-    margin-right: 20px;
-    h3{
-        font-size: 3em;
-    }
-    p{
-        font-size: 1.5em;
-    }
-}
-
-/*Ajout au panier + Prix*/
-.blockinfos{
-    display: flex;
-    flex-direction: column;
-    border: 2px solid #dddddd;
-    flex-grow: 1;
-    padding: 1% 1% 25% 1%;
-    margin-right: 20px;
-    p{
-        color: red;
-        font-size: 2em;
-        margin-top: 20px;
-
-    }
-    span{
-        font-size: 2em;
-        color: green;
-        margin-top: 50px;
-    }
-    .btnpanier{
-        margin-top: 50px;
-        padding: 0px 25px;
-        border-radius: 10px;
-        background-color: #65ad42;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        box-shadow: 5px 5px 5px black;
-        transition: all 200ms ease-out;
-        &:hover{
-        box-shadow: 1px 1px 1px black;  
-    }
-        i{
-            font-size: 2.5em;
-            color: white;
-            padding: 5px;
-            border: 1px solid white;
-            border-radius: 50px;   
-        }
-        p{
-            font-size: 1.5em;
-            color: white;
-            font-weight: bold;
-            margin-bottom: 10%;
-            margin-left: 5px;
-            white-space: nowrap;
-            text-shadow: 1px 1px 1px black;
-        }
-    }
-
-}
 
 /**************************************************************************************/
-/**********************************RESPONSIVE******************************************/
+/**********************************RESPONSIVE PAGE PRODUITS****************************/
 /**************************************************************************************/
 @media screen and (max-width: 700px){
 
@@ -276,6 +203,576 @@ h2{
             h3{
                 font-size: 1.2em;
             }
+        }
+    }
+}
+
+
+/**************************************************************************************/
+/**********************************PRODUIT*********************************************/
+/**************************************************************************************/
+#container{
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    margin: 40px 20px;
+    border: 1px solid #e5e5e5;
+    background-color: #e5e5e5;
+    z-index: 1;
+}
+#descriptionproduit{
+    display: flex;
+    flex-direction: row;
+    background-color: $clrbckg;
+    .imageproduit{
+        width: 100%;
+        height: auto;
+        vertical-align: middle;
+        margin: 10px;
+    }
+    h3{
+        font-size: 3rem;
+        font-weight: bold;
+    }
+    .ref{
+        font-size: 0.75rem;
+        margin-top: 5px;
+    }
+    p{
+        font-size: 1.2rem;
+        margin-top: 20px;
+    }
+}
+#error_lense{
+    margin-top: 1%;
+    color: white;
+    font-family: 'calibri', 'sans-serif';
+    padding: 0px;
+    background: red;
+    text-align: center;
+    font-size: 14px;
+    transition: all 0.5s ease;  
+}
+
+
+
+
+.prixpanier{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color:$clrbckg;
+    margin: 1%;
+    width: 40%;
+    padding: 20px;
+    #prix p{
+        font-size: 3em;
+        text-align: center;
+        color: $clrimportant;
+        font-weight: bold;
+        margin: 30px auto;
+    }
+    #choixlentilles{
+        width: 300px;
+        padding: 2%;        
+        border-radius: 10px;
+        font-size: 1.1em;
+        text-align: center;
+        margin: 2% auto;
+        background: $clrprimaire;
+        color: $clrbckg;
+        border: 1px solid $clrborderbutton;
+        font-weight: bold;
+        letter-spacing: 0.05em;
+        text-shadow: 1px 2px 0 $clrborderbutton;
+    }
+}
+
+#btnaddcart{
+    font-size: 1.2em;
+    display: inline-block;
+    height: 54px;
+    background: $clrprimaire;
+    color: $clrbckg;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    border: 1px solid $clrborderbutton;
+    text-shadow: 1px 2px 0 $clrborderbutton;
+    cursor: pointer;
+    white-space: nowrap;
+    &:hover{
+        border: 0px solid $clrborderbutton;
+    }
+    &:active{
+        box-shadow: 1px 1px 1px 5px $clrbckg inset;  
+    }
+}
+
+/**************************************************************************************/
+/**********************************RESPONSIVE PAGE PRODUIT*****************************/
+/**************************************************************************************/
+@media screen and (max-width: 1000px){
+
+    #container{
+    flex-direction: column;
+    width: auto;
+    margin: 40px 20px;
+    background-color: $clrbckg;
+    }
+    #descriptionproduit{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: $clrbckg;
+    }
+    .prixpanier{
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 700px){
+    #container{
+        border: none;
+    }
+    #descriptionproduit{
+        flex-direction: column;
+        .imageproduit{
+            padding: 1%;
+        }
+        h3{
+            text-align: center;
+        }
+        .ref{
+            text-align: center;
+        }
+        p{
+            text-align: center;
+        }
+    }
+}
+
+/**************************************************************************************/
+/********************************** PAGE PANIER****************************************/
+/**************************************************************************************/
+
+.products-container{
+    max-width: 80vw;
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-top: 3%;
+    font-family: 'Roboto','Calibri';
+    font-weight: bold;
+    .products-header{
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        text-align: center;
+        border-bottom: 3px solid $clrborderpanier;
+        .products-title{
+            width: 33%;
+        }
+        .products-title-responsive{
+            display: none;
+        }
+        .products-option{
+            width: 17%;
+        }
+        .products-price{
+            width: 20%;
+        }
+        .products-quantity{
+            width: 10%;
+        }
+        .products-total{
+            width: 20%;
+        }
+    }
+    .products{
+        .product{
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            padding: 1% 0;
+            border-bottom: 1px solid $clrborderpanier;
+            font-size: 1.2em;
+            white-space: nowrap;
+            .product-name{
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                width: 33%;
+                ion-icon{
+                    font-size: 1.5em;
+                    color: $clrprimaire;
+                    cursor: pointer;
+                    &:active{
+                        scale: 0.8;
+                    }
+                }
+                img{
+                    width: 33%;
+                }
+                span{
+                    width: 33%;
+                    text-align: center;
+                }
+            }
+            .product-option{
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                width: 17%;
+            }
+            .product-price{
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                width: 20%;
+            }
+            .product-quantity{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                width: 10%;
+                ion-icon{
+                    flex-grow: 2;
+                    font-size: 1.5em;
+                    color: $clrprimaire;
+                    cursor: pointer;
+                    &:active{
+                        scale: 0.8; 
+                    }
+                }
+                span{
+                    flex-grow: 1;
+                    text-align: center;
+                }
+            }
+            .product-total{
+                width: 20%;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+        }
+    }
+    .no-products{
+        margin-bottom: 5vw;
+        p{
+            font-size: 2em;
+            text-align: center;
+            margin-top: 3%;
+            a{
+                text-decoration: underline;
+                color: $clrprimaire;
+            }
+        }
+    }
+    .total-basket{
+        text-align: center;
+        font-size: 2vw;
+        margin: 2%;
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid black;
+        h5{
+            margin-left: 10%;
+        }
+        h6{
+            margin-right: 10%;
+        }
+
+    }
+    
+    #btnorder{
+        display: block;
+        margin: 5% auto;
+        font-size: 1.2em;
+        height: 54px;
+        background: $clrprimaire;
+        color: $clrbckg;
+        font-weight: bold;
+        letter-spacing: 0.05em;
+        text-decoration: none;
+        border: 1px solid $clrborderbutton;
+        text-shadow: 1px 2px 0 $clrborderbutton;
+        cursor: pointer;
+        white-space: nowrap;
+        &:hover{
+            border: 0px solid $clrborderbutton;
+        }
+        &:active{
+            box-shadow: 1px 1px 1px 5px $clrbckg inset;  
+        }
+    }
+}
+
+
+/**************************************************************************************/
+/**********************************RESPONSIVE PAGE PANIER******************************/
+/**************************************************************************************/
+@media screen and (max-width: 1200px){
+    .products-container{
+        max-width: 100vw;
+        .products{
+            .product{
+                .product-quantity, .product-name{
+                    ion-icon{
+                        font-size: 1.5em;
+                        color: $clrprimaire;
+                        margin-left: 10px;
+                        margin-right: 10px;
+                        cursor: pointer;
+                            &:hover{
+                            box-shadow: 0px 0px 0px 0px $clrborderbutton;
+                            border-radius: 0px;
+                        }
+                        &:active{
+                            box-shadow: 0px 0x 0px 0px lightgreen; 
+                            scale: 0.8; 
+                        }
+                    }
+                }
+            }
+        }    
+    }
+}
+@media screen and (max-width: 850px){
+    .products-container{
+        max-width: 100vw;
+        .products{
+            .product{
+                .product-quantity{
+                    ion-icon{
+                        scale: 1.5;
+                        &:active{
+                            scale: 1.2;
+                        }
+                    }
+                    
+                }
+            }
+        }    
+    }
+}
+
+@media screen and (max-width: 770px){
+    .products-container{
+        .products-header{
+            .products-title-responsive{
+                display: block;
+                width: 100%;
+                font-size: 3em;
+                font-weight: bold;
+                font-family: "calibri";
+                margin: 5%;
+            }
+            .products-title{
+                display: none;
+            }
+            .products-option{
+                display: none;
+            }
+            .products-price{
+                display: none;
+            }
+            .products-quantity{
+                display: none;
+            }
+            .products-total{
+                display: none;
+            }
+        }
+        .products{
+            .product{
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                padding: 3%;
+                border-bottom: 5px solid $clrborderpanier;
+                font-size: 4vw;
+                .product-name{
+                    justify-content: flex-start;
+                    width: 100%;
+                    img{
+                        width: 30%;
+                        margin-left: 10%;
+                    }
+                    span{
+                        width: 70%;
+                    }
+                }
+                .product-option{
+                    margin-top: 2%;
+                    width: 100%;
+
+                }
+                .product-price{
+                    display: none;
+                }
+                .product-quantity{
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    width: 100%;
+                    ion-icon{
+                        margin-top: 2%;
+                        flex-grow: none;
+                        font-size: 3vw;
+                        color: $clrprimaire;
+                        cursor: pointer;
+                        &:active{
+                            scale: 1.2; 
+                        }
+                    }
+                    span{
+                        margin-top: 2%;
+                        flex-grow: none;
+                        text-align: center;
+                    }
+                }
+                .product-total{
+                    margin-top: 2%;
+                    width: 100%;
+                }
+            }
+        }
+        .total-basket{
+            text-align: center;
+            font-size: 5vw;
+            margin-top: 2%;
+            display: flex;
+            justify-content: space-between;
+            h5{
+                margin-left: 10%;
+            }
+            h6{
+                margin-right: 10%;
+            }
+        }
+    }
+}
+
+/**************************************************************************************/
+/**********************************VALIDATION******************************************/
+/**************************************************************************************/
+
+#validation{
+    width: 100vw;
+    height: 100vh;
+    background: $clrprimaire;
+    color: $clrbckg;
+    p{
+        padding-top: 1vw;
+        font-size: 2vw;
+        text-align: center;
+    }
+    .responsive{
+        display: none;
+    }
+    i{
+        margin: auto 46%;
+        font-size: 2.5vw;
+        margin-top: 2%;
+        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#e68a09+0,af6ca4+50,8f5bfe+100 */
+        background: #e68a09; /* Old browsers */
+        background: -moz-linear-gradient(-45deg,  #e68a09 0%, #af6ca4 50%, #8f5bfe 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(-45deg,  #e68a09 0%,#af6ca4 50%,#8f5bfe 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(135deg,  #e68a09 0%,#af6ca4 50%,#8f5bfe 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e68a09', endColorstr='#8f5bfe',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+        -webkit-text-fill-color:transparent;
+        -webkit-background-clip:text;
+    }
+    h2{
+        font-size: 2.5vw;
+        padding: 1vw;
+        margin: 0;
+    }
+    h3{
+        text-align: center;
+        font-size: 2.2vw;
+
+    }
+    .btn-accueil{
+        display: block;
+        margin: 5% auto;
+        font-size: 1.2em;
+        height: 54px;
+        background: $clrbckhd;
+        color: $clrborderbutton;
+        font-weight: bold;
+        letter-spacing: 0.05em;
+        text-decoration: none;
+        border: 1px solid $clrborderbutton;
+        border-radius: 5px;
+        cursor: pointer;
+        white-space: nowrap;
+        &:hover{
+            border: 0px solid $clrborderbutton;
+        }
+        &:active{
+            box-shadow: 1px 1px 1px 5px $clrprimaire inset; 
+            border: none;
+            background: $clrprimaire;
+            color: $clrbckhd;
+        }
+    }  
+}
+
+@media screen and (max-width: 1300px){
+    #validation{
+        p{
+            font-size: 3vw;
+        }
+        i{
+            font-size: 5vw;
+        }
+        h2{
+            font-size: 4vw;
+        }
+        h3{
+            font-size: 3vw;
+        }
+    }
+}
+@media screen and (max-width: 800px){
+    #validation{
+        p{
+            font-size: 3.5vw;
+            span{
+                display: none;
+            }
+        }
+        .responsive{
+            display: block;
+        }
+            
+        i{
+            font-size: 6vw;
+        }
+        h2{
+            font-size: 4.5vw;
+        }
+        h3{
+            font-size: 3.2vw;
+        }
+    }
+}
+@media screen and (max-width: 500px){
+    #validation{
+        p{
+            font-size: 4vw;
+        }
+        i{
+            font-size: 6vw;
+        }
+        h2{
+            font-size: 6vw;
+        }
+        h3{
+            font-size: 4vw;
         }
     }
 }

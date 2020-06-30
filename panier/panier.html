@@ -5,6 +5,9 @@
         <title>Orinoco</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/formulaire.css">
+        <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> 
         <script src="https://kit.fontawesome.com/29d0c15e9b.js" crossorigin="anonymous"></script>
     </head>
     <body>
@@ -18,8 +21,52 @@
                     <p>Mon panier</p>
                 </a> 
         </header>
-        <section class="panier">
+        <div class="products-container">
+            <div class="products-header">
+                <h5 class="products-title">Produit</h5>
+                <h5 class="products-title-responsive">Ton panier</h5>
+                <h5 class="products-option">Option</h5>
+                <h5 class="products-price">Prix</h5>
+                <h5 class="products-quantity">Quantité</h5>
+                <h5 class="products-total">Total</h5>
+            </div>
+            <div class="products"></div>
+            <div class="no-products"></div>
+            <div class="total-basket">
+                <h5>Total commande</h5>
+                <h6 id="total-products"></h6>
+            </div>
             
-        </section>
+            <button id="btnorder">Passer la commande</button>
+        </div>
+        <section id="formulaire">
+            <form id="myform">
+                <h3>Informations</h3>
+                <div class="input_field">
+                    <input type="text" placeholder="prénom*" id="firstname">
+                </div>
+                <div class="input_field">
+                    <input type="text" placeholder="nom*" id="lastname">
+                </div>
+                <div class="input_field">
+                    <input type="text" placeholder="adresse*" id="address">
+                </div>
+                <div class="input_field">
+                    <input type="text" placeholder="ville*" id="city">
+                </div>
+                <div class="input_field">
+                    <input type="text" placeholder="email*" id="email">
+                </div>
+                <div id="btnsend">
+                    <input type="submit">
+                </div>
+                <div id="error_message"></div>
+            </form>
+        </section> 
+        <!--Scripts-->
+        <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+        <script src="../js/formulaire.js"></script>
+        <script type="text/javascript" src="/js/panier.js"></script>
+        <!--Fin des Scripts-->
     </body>
 </html>
