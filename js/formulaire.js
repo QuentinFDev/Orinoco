@@ -1,13 +1,14 @@
 function displayCart() {
+
     let formItems = localStorage.getItem("produitpanier");
     formItems = JSON.parse(formItems);
     let productsContainer = document.querySelector("#recapcmd");
-    //console.log(formItems);
 
     if(formItems && productsContainer){
         productsContainer.innerHTML = '';
         formItems.forEach(item => {
-            productsContainer.innerHTML += `
+            productsContainer.innerHTML +=
+            `
             <div class="form_product_container">
                 <div class="form_product_name">
                     <p>${item.name} avec objectif ${item.lense}</p>
@@ -21,13 +22,9 @@ function displayCart() {
             </div>
             ` 
         });
-        
     }
 }
-
 displayCart();
-
-
 
 /***************************************************************************************/
 /******************************FORMULAIRE DE CONTACT************************************/
@@ -43,28 +40,27 @@ function validation(e){
     var text;
     error_message.style.padding = "10px";
 
-
-    if(firstname.length <2){
+    if(firstname.length <2 || firstname.length>30){
         text = "Merci d'entrer un prénom valide";
         error_message.innerHTML = text;
         return false;
     }   
-    if(lastname.length <2){
+    if(lastname.length <2 || lastname.length>30){
         text = "Merci d'entrer un nom valide";
         error_message.innerHTML = text;
         return false;
     }
-    if(address.length <5){
+    if(address.length <5 || address.length>250){
         text = "Merci d'entrer une adresse valide";
         error_message.innerHTML = text;
         return false;
     }
-    if(city.length <2){
+    if(city.length <2 || city.length>70){
         text = "Merci d'entrer une ville valide";
         error_message.innerHTML = text;
         return false;
     }
-    if(email.indexOf("@") == -1 || email.length <5 || email.indexOf(".") ==-1){
+    if(email.indexOf("@") == -1 || email.length <5 || email.indexOf(".") ==-1 || email.length >250){
         text = "Merci d'entrer une adresse email valide";
         error_message.innerHTML = text;
         return false;
@@ -72,7 +68,6 @@ function validation(e){
     return true;
 }
 validation()
-
 
 var form = document.querySelector('#myform');
 
@@ -87,7 +82,6 @@ form.addEventListener('submit', function(e) {
         contactForm["city"] = city.value;
         contactForm["email"] = email.value;
         localStorage.setItem("contact", JSON.stringify(contactForm));
-
         saveProducts = JSON.parse(saveProducts);
         saveProducts = saveProducts.map(save =>{
             save = save.id/*+save.amount*/
@@ -97,5 +91,3 @@ form.addEventListener('submit', function(e) {
         document.location.href="./validation.html";
     }
 });
-
-

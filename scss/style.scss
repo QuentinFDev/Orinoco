@@ -1,9 +1,13 @@
-/*RESET*/
+/***************************************/
+/*************RESET********************/
+/*************************************/
 
 @import "reset-fonts";
 
 
-/*COULEURS*/
+/***************************************/
+/*************COLORS*******************/
+/*************************************/
 
 $clrbckhd: #f3e9f1; /*couleur background header*/
 $clrprimaire: #65AD42; /*vert bouton et background récap commande*/
@@ -12,14 +16,34 @@ $clrbckg: white; /*background et couleur blanche*/
 $clrborderbutton: #243e18; /*couleur des bordures des bouttons*/
 $clrborderpanier: #d3d3d3; /*couleur bordures panier*/
 
-/*FONTS*/
+
+
+/***************************************/
+/*************MIXINS*******************/
+/*************************************/
+
+@mixin degradeOrinoco{
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#e68a09+0,af6ca4+50,8f5bfe+100 */
+    background: #e68a09; /* Old browsers */
+    background: -moz-linear-gradient(-45deg,  #e68a09 0%, #af6ca4 50%, #8f5bfe 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg,  #e68a09 0%,#af6ca4 50%,#8f5bfe 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg,  #e68a09 0%,#af6ca4 50%,#8f5bfe 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e68a09', endColorstr='#8f5bfe',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    -webkit-text-fill-color:transparent;
+    -webkit-background-clip:text;
+}
+
+/***************************************/
+/*************FONTS********************/
+/*************************************/
 
 p, h1, h2, h3, h4, a, span, #choixlentilles{font-family: "calibri", "sans-serif"; color: black;}
 
+/********************************************************/
+/***********************HEADER***************************/
+/********************************************************/
 
-/*HEADER*/
-
-                /*LOGO ORINOCO*/
+/*LOGO ORINOCO*/
 
 header{
     display: flex;
@@ -33,18 +57,11 @@ header{
         flex-direction: row;
         margin: auto 3%;
         flex-grow: 2;
-
         i{
             font-size: 5em;
             margin-right: 2%;
-            /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#e68a09+0,af6ca4+50,8f5bfe+100 */
-            background: #e68a09; /* Old browsers */
-            background: -moz-linear-gradient(-45deg,  #e68a09 0%, #af6ca4 50%, #8f5bfe 100%); /* FF3.6-15 */
-            background: -webkit-linear-gradient(-45deg,  #e68a09 0%,#af6ca4 50%,#8f5bfe 100%); /* Chrome10-25,Safari5.1-6 */
-            background: linear-gradient(135deg,  #e68a09 0%,#af6ca4 50%,#8f5bfe 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e68a09', endColorstr='#8f5bfe',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-            -webkit-text-fill-color:transparent;
-            -webkit-background-clip:text;
+            @include degradeOrinoco;
+            
         }
         h1{
             font-size: 5em;
@@ -52,7 +69,6 @@ header{
             text-align: center;
         }
     }
-
     /*MON PANIER*/
     .monpanier{
         display: flex;
@@ -73,7 +89,6 @@ header{
 /********************************** PAGE PRODUITS***************************************/
 /**************************************************************************************/
 
-
 /*NOM DES ARTICLES*/
 
 h2{
@@ -83,7 +98,6 @@ h2{
     margin: 2% auto;
     text-shadow: 3px 3px 3px $clrbckhd;
 }
-
 
 /*Liste des Produits*/
 
@@ -139,7 +153,6 @@ h2{
 /**********************************RESPONSIVE PAGE PRODUITS****************************/
 /**************************************************************************************/
 @media screen and (max-width: 700px){
-
     /*Produit*/
     .produit a{
         .libelle{
@@ -159,7 +172,6 @@ h2{
             }
         }
     }
-
     /*MON PANIER*/
     .monpanier{
         p{
@@ -167,7 +179,6 @@ h2{
         }
     }
 }
-
 @media screen and (max-width: 580px){
     header{
         .retourindex{
@@ -185,7 +196,6 @@ h2{
     .produit .prix p{
         display: none;
     }
-
     /*MON PANIER*/
     .monpanier{
         i{
@@ -211,6 +221,7 @@ h2{
 /**************************************************************************************/
 /**********************************PRODUIT*********************************************/
 /**************************************************************************************/
+
 #container{
     display: flex;
     flex-direction: row;
@@ -220,6 +231,7 @@ h2{
     background-color: #e5e5e5;
     z-index: 1;
 }
+
 #descriptionproduit{
     display: flex;
     flex-direction: row;
@@ -243,6 +255,7 @@ h2{
         margin-top: 20px;
     }
 }
+
 #error_lense{
     margin-top: 1%;
     color: white;
@@ -253,9 +266,6 @@ h2{
     font-size: 14px;
     transition: all 0.5s ease;  
 }
-
-
-
 
 .prixpanier{
     display: flex;
@@ -312,6 +322,7 @@ h2{
 /**************************************************************************************/
 /**********************************RESPONSIVE PAGE PRODUIT*****************************/
 /**************************************************************************************/
+
 @media screen and (max-width: 1000px){
 
     #container{
@@ -331,7 +342,6 @@ h2{
         width: 100%;
     }
 }
-
 @media screen and (max-width: 700px){
     #container{
         border: none;
@@ -483,9 +493,7 @@ h2{
         h6{
             margin-right: 10%;
         }
-
     }
-    
     #btnorder{
         display: block;
         margin: 5% auto;
@@ -509,10 +517,10 @@ h2{
     }
 }
 
-
 /**************************************************************************************/
 /**********************************RESPONSIVE PAGE PANIER******************************/
 /**************************************************************************************/
+
 @media screen and (max-width: 1200px){
     .products-container{
         max-width: 100vw;
@@ -551,13 +559,11 @@ h2{
                             scale: 1.2;
                         }
                     }
-                    
                 }
             }
         }    
     }
 }
-
 @media screen and (max-width: 770px){
     .products-container{
         .products-header{
@@ -607,7 +613,6 @@ h2{
                 .product-option{
                     margin-top: 2%;
                     width: 100%;
-
                 }
                 .product-price{
                     display: none;
@@ -676,14 +681,7 @@ h2{
         margin: auto 46%;
         font-size: 2.5vw;
         margin-top: 2%;
-        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#e68a09+0,af6ca4+50,8f5bfe+100 */
-        background: #e68a09; /* Old browsers */
-        background: -moz-linear-gradient(-45deg,  #e68a09 0%, #af6ca4 50%, #8f5bfe 100%); /* FF3.6-15 */
-        background: -webkit-linear-gradient(-45deg,  #e68a09 0%,#af6ca4 50%,#8f5bfe 100%); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(135deg,  #e68a09 0%,#af6ca4 50%,#8f5bfe 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e68a09', endColorstr='#8f5bfe',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-        -webkit-text-fill-color:transparent;
-        -webkit-background-clip:text;
+        @include degradeOrinoco;
     }
     h2{
         font-size: 2.5vw;
@@ -693,7 +691,6 @@ h2{
     h3{
         text-align: center;
         font-size: 2.2vw;
-
     }
     .btn-accueil{
         display: block;
@@ -720,7 +717,6 @@ h2{
         }
     }  
 }
-
 @media screen and (max-width: 1300px){
     #validation{
         p{
