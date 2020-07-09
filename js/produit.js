@@ -16,6 +16,11 @@ var IdProduct =urlParams.get("product");
 var camera; 
 
 
+//fonction pour le loading de la page
+function showContent(){
+    document.querySelector('.loader-container').classList.add('hidden');
+}
+
 // connection avec les produits sur le serveur 
 async function produits(url) {
     let result = await fetch(url)
@@ -56,6 +61,7 @@ produits('http://localhost:3000/api/cameras/'+ IdProduct).then(data => {
     else {
         result = "erreur"
     }
+    setTimeout(showContent);
     return result;      
 });
 
